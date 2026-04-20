@@ -1,18 +1,114 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
 
-# Other files and folders
+# Next.js build output
+.next/
+out/
+
+# Production build
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Test results
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# Vercel
+.vercel/
+
+# Turborepo
+.turbo/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IDE - IntelliJ/WebStorm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# IDE - Eclipse
 .settings/
+.metadata/
+.classpath
+.project
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.nfs*
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# Misc
+*.bak
+*.orig
+
+# Local Supabase
+/supabase/.branches
+/supabase/.temp
