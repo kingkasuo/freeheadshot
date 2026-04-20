@@ -1,6 +1,6 @@
 export const config = {
-  packQueryType: process.env.PACK_QUERY_TYPE as 'users' | 'gallery' | 'both',
-  tuneType: process.env.NEXT_PUBLIC_TUNE_TYPE as 'packs' | 'tune',
+  packQueryType: (process.env.PACK_QUERY_TYPE || 'both') as 'users' | 'gallery' | 'both',
+  tuneType: (process.env.NEXT_PUBLIC_TUNE_TYPE || 'packs') as 'packs' | 'tune',
   stripeEnabled: process.env.NEXT_PUBLIC_STRIPE_IS_ENABLED === 'true',
   deploymentUrl: process.env.DEPLOYMENT_URL,
 } as const;
@@ -12,8 +12,18 @@ function isVercelPreviewUrl(url: string): boolean {
 }
 
 export function validateConfig() {
+  // Skip strict validation during static site generation/build
+  if (process.env.NEXT_PHASE === 'phase-production-build') {
+    return;
+  }
+
   const validPackQueryTypes = ['users', 'gallery', 'both'];
   const validTuneTypes = ['packs', 'tune'];
+
+  // Only validate in runtime, not during build
+  if (typeof window === 'undefined' && process.env.NEXT_PHASE) {
+    return;
+  }
 
   if (!validPackQueryTypes.includes(config.packQueryType)) {
     throw new Error(`Invalid PACK_QUERY_TYPE: ${config.packQueryType}`);
